@@ -7,10 +7,6 @@ from sqlalchemy.orm import Session
 from database.orm import User, Test, Question
 
 
-def get_users(session: Session) -> List[User]:
-    return list(session.scalars(select(User)))
-
-
 def get_user_by_user_id(session: Session, user_id: int) -> User | None:
     return session.scalar(select(User).where(User.id == user_id))
 
@@ -41,13 +37,9 @@ def create_test(session: Session, test: Test) -> Test:
     return test
 
 
-def get_questions_by_date(session: Session, date: date) -> Question | None:
-    return session.scalar(select(Question).where(Question.date == date))
-
-
-def get_questions(session: Session) -> List[Question]:
-    return list(session.scalars(select(Question)))
-
-
 def get_tests(session: Session) -> List[Test]:
     return list(session.scalars(select(Test)))
+
+
+def get_questions_by_date(session: Session, date: date) -> Question | None:
+    return session.scalar(select(Question).where(Question.date == date))

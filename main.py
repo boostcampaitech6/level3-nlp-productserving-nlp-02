@@ -6,23 +6,19 @@ from sqlalchemy.orm import Session
 
 from database.connection import get_db
 from database.repository import (
-    get_users,
     get_user_by_user_id,
     create_user,
     update_user,
     delete_user,
     create_test,
     get_questions_by_date,
-    get_questions,
     get_tests,
 )
 from database.orm import User, Test, Question
 from schema.response import (
-    UserListSchema,
     UserSchema,
     TestSchema,
     QuestionSchema,
-    QuestionListSchema,
     TestListSchema,
 )
 from schema.request import CreateUserRequest, CreateTestRequest
